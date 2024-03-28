@@ -614,7 +614,7 @@
 <summary>Output files</summary>
 <ul>
 <li><code>sampleID/sampleID.sv.vcf.gz</code>: vcf format file with merged SV calls for all selected callers.</li>
-<li><code>sampleID/sampleID.sv.vcf.gz</code>: tabix index for the vcf format file with merged SV calls for all selected callers.</li>
+<li><code>sampleID/sampleID.sv.vcf.gz.tbi</code>: tabix index for the vcf format file with merged SV calls for all selected callers.</li>
 </ul>
 </details>
 <p>SV calling runs all selected callers individually and merges the calls after. Optionally, the output of the selected callers can also be stored individually. SV calling provides the following callers:</p>
@@ -653,13 +653,13 @@
 <li><code>sampleID.smoove.vcf.gz.tbi</code>: tabix index for the vcf format file with SV calls for Smoove.</li>
 </ul>
 </details>
-<p><a href="https://github.com/brentp/smoove">Smoove</a> simplifies and speeds calling and genotyping SVs for short reads. It also improves specificity by removing many spurious alignment signals that are indicative of low-level noise and often contribute to spurious calls. It wraps existing software and adds some internal read-filtering to simplify calling and genotyping structural variants. It parallelizes each step as it can, for example, it streams lumpy output directly to multiple svtyper processes for genotyping. </p>
+<p><a href="https://github.com/brentp/smoove">Smoove</a> simplifies and speeds calling and genotyping SVs for short reads. It also improves specificity by removing many spurious alignment signals that are indicative of low-level noise and often contribute to spurious calls. It wraps existing software and adds some internal read-filtering to simplify calling and genotyping structural variants. It parallelizes each step as it can, for example, it streams lumpy output directly to multiple svtyper processes for genotyping.</p>
 <h3 id="cnv-calling">CNV calling</h3>
 <details>
 <summary>Output files</summary>
 <ul>
 <li><code>sampleID/sampleID.cnv.vcf.gz</code>: vcf format file with merged CNV calls for all selected callers.</li>
-<li><code>sampleID/sampleID.cnv.vcf.gz</code>: tabix index for the vcf format file with merged CNV calls for all selected callers.</li>
+<li><code>sampleID/sampleID.cnv.vcf.gz.tbi</code>: tabix index for the vcf format file with merged CNV calls for all selected callers.</li>
 </ul>
 </details>
 <p>CNV calling runs all selected callers individually and merges the calls after. Optionally, the output of the selected callers can also be stored individually. If this option is not selected, than files that would normally appear in the callers' result directories are provided in the main results directory. CNV calling provides the following callers:</p>
@@ -693,16 +693,16 @@
 <li><code>sampleID.qdnaseq.vcf.gz</code>: vcf format file with CNV calls for QDNAseq.</li>
 <li><code>sampleID.qdnaseq.vcf.gz.tbi</code>: tabix index for the vcf format file with CNV calls for QDNAseq.</li>
 <li><code>sampleID.qdnaseq_segments.txt</code>: file with segment-wise information.</li>
-<li><code>statistics.out</code>: statistics report. </li>
+<li><code>statistics.out</code>: statistics report.</li>
 </ul>
 </details>
-<p>Quantitative DNA sequencing for chromosomal aberrations. The genome is divided into non-overlapping fixed-sized bins, number of sequence reads in each counted, adjusted with a simultaneous two-dimensional loess correction for sequence mappability and GC content, and filtered to remove spurious regions in the genome. Downstream steps of segmentation and calling are also implemented via packages DNAcopy and CGHcall, respectively. </p>
+<p>Quantitative DNA sequencing for chromosomal aberrations. The genome is divided into non-overlapping fixed-sized bins, number of sequence reads in each counted, adjusted with a simultaneous two-dimensional loess correction for sequence mappability and GC content, and filtered to remove spurious regions in the genome. Downstream steps of segmentation and calling are also implemented via packages DNAcopy and CGHcall, respectively.</p>
 <h3 id="rre-calling">RRE calling</h3>
 <details>
 <summary>Output files</summary>
 <ul>
 <li><code>sampleID/sampleID.repeats.vcf.gz</code>: vcf format file with merged RRE calls for all selected callers.</li>
-<li><code>sampleID/sampleID.repeats.vcf.gz</code>: tabix index for the vcf format file with merged RRE calls for all selected callers.</li>
+<li><code>sampleID/sampleID.repeats.vcf.gz.tbi</code>: tabix index for the vcf format file with merged RRE calls for all selected callers.</li>
 </ul>
 </details>
 <p>RRE calling runs all selected callers individually and merges the calls after. Optionally, the output of the selected callers can also be stored individually. CNV calling provides the following callers:</p>
@@ -714,7 +714,7 @@
 <summary>Output files</summary>
 <ul>
 <li><code>sampleID/sampleID.expansionhunter.vcf.gz</code>: vcf format file with RRE calls for ExpansionHunter.</li>
-<li><code>sampleID/sampleID.expansionhunter.vcf.gz</code>: tabix index for the vcf format file with RRE calls for ExpansionHunter.</li>
+<li><code>sampleID/sampleID.expansionhunter.vcf.gz.tbi</code>: tabix index for the vcf format file with RRE calls for ExpansionHunter.</li>
 </ul>
 </details>
 <p>There are a number of regions in the human genome consisting of repetitions of short unit sequence (commonly a trimer). Such repeat regions can expand to a size much larger than the read length and thereby cause a disease. Fragile X Syndrome, ALS, and Huntington's Disease are well known examples. <a href="https://github.com/Illumina/ExpansionHunter">ExpansionHunter</a> aims to estimate sizes of such repeats by performing a targeted search through a BAM/CRAM file for reads that span, flank, and are fully contained in each repeat.</p>
@@ -722,8 +722,8 @@
 <details>
 <summary>Output files</summary>
 <ul>
-<li><code>sampleID/sampleID.sv.vcf.gz</code>: vcf format file with merged and annotated SV calls for all selected callers.</li>
-<li><code>sampleID/sampleID.sv.vcf.gz</code>: tabix index for the vcf format file with merged and annotated SV calls for all selected callers.</li>
+<li><code>sampleID/sampleID.sv.annotated.vcf.gz</code>: vcf format file with merged and annotated SV calls for all selected callers.</li>
+<li><code>sampleID/sampleID.sv.annotated.vcf.gz.tbi</code>: tabix index for the vcf format file with merged and annotated SV calls for all selected callers.</li>
 </ul>
 </details>
 <p>SV annotation runs each annotation method individually and merges their output after. SV calling provides the following annotation methods:</p>
@@ -731,13 +731,13 @@
 <li><a href="https://github.com/lgmgeo/AnnotSV">AnnotSV</a></li>
 </ul>
 </details>
-<p><a href="https://github.com/lgmgeo/AnnotSV">AnnotSV</a>  is a program designed for annotating and ranking Structural Variations (SV). This tool compiles functionally, regulatory and clinically relevant information and aims at providing annotations useful to i. interpret SV potential pathogenicity and ii. filter out SV potential false positives. Different types of SV exist including deletions, duplications, insertions, inversions, translocations or more complex rearrangements. They can be either balanced or unbalanced. When unbalanced and resulting in a gain or loss of material, they are called Copy Number Variations (CNV). CNV can be described by coordinates on one chromosome, with the start and end positions of the SV (deletions, insertions, duplications).Complex rearrangements with several breakends can arbitrary be summarized as a set of novel adjacencies, as described
+<p><a href="https://github.com/lgmgeo/AnnotSV">AnnotSV</a> is a program designed for annotating and ranking Structural Variations (SV). This tool compiles functionally, regulatory and clinically relevant information and aims at providing annotations useful to i. interpret SV potential pathogenicity and ii. filter out SV potential false positives. Different types of SV exist including deletions, duplications, insertions, inversions, translocations or more complex rearrangements. They can be either balanced or unbalanced. When unbalanced and resulting in a gain or loss of material, they are called Copy Number Variations (CNV). CNV can be described by coordinates on one chromosome, with the start and end positions of the SV (deletions, insertions, duplications).Complex rearrangements with several breakends can arbitrary be summarized as a set of novel adjacencies, as described
 in the Variant Call Format specification VCFv4.3.</p>
 <ul>
 <li><a href="https://www.ensembl.org/info/docs/tools/vep/index.html">ensembl VEP</a></li>
 </ul>
 </details>
-<p><a href="https://www.ensembl.org/info/docs/tools/vep/index.html">ensembl VEP</a> determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions. </p>
+<p><a href="https://www.ensembl.org/info/docs/tools/vep/index.html">ensembl VEP</a> determines the effect of your variants (SNPs, insertions, deletions, CNVs or structural variants) on genes, transcripts, and protein sequence, as well as regulatory regions.</p>
 <h3 id="multiqc">MultiQC</h3>
 <details>
 <summary>Output files</summary>
